@@ -16,3 +16,6 @@
 ---
 
 Crear seeder para roles y usuarios
+
+Crear migración y modelo de notas
+Mostrar el listado de notas

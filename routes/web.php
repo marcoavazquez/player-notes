@@ -2,11 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::group(['middleware' => ['auth']], function () {
 
-Route::view('dashboard', 'dashboard')
-    // ->middleware(['auth'])
-    ->name('dashboard');
+    Route::get('/', fn () => view('welcome'))->name('home');
 
+    Route::livewire('/player-notes', 'pages::player-notes.index')->name('player-notes');
+    Route::livewire('/player-notes/create', 'pages::player-notes.create')->name('player-notes.create');
+});
