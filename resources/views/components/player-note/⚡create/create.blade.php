@@ -1,5 +1,5 @@
 <form wire:submit="save">
-    <flux:select label="Player" wire:model="playerId" class="mb-4">
+    <flux:select label="Player" wire:model="playerId" class="mb-4" :disabled="$this->fromPlayerInfo">
         <option value="">Select a Player</option>
         @foreach ($this->players as $player)
             <flux:select.option

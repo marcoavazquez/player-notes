@@ -15,6 +15,9 @@
                         {{ __('Home') }}
                     </flux:sidebar.item>
                     @can('create notes')
+                        <flux:sidebar.item icon="users" href="{{ route('players.index') }}" wire:navigate>
+                            {{ __('Players') }}
+                        </flux:sidebar.item>
                         <flux:sidebar.item icon="book-open" href="{{ route('player-notes.index') }}" wire:navigate>
                             {{ __('Player Notes') }}
                         </flux:sidebar.item>

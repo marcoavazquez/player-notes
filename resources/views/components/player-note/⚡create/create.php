@@ -18,6 +18,9 @@ new class extends Component
     #[Validate('required|exists:users,id')]
     public int $playerId;
 
+    protected bool $fromPlayerInfo = false;
+
+
     public function boot(
         UserRepositoryInterface $userRepository,
         PlayerNoteRepositoryInterface $playerNoteRepository
@@ -25,6 +28,14 @@ new class extends Component
     {
         $this->userRepository = $userRepository;
         $this->playerNoterepository = $playerNoteRepository;
+    }
+
+    public function mount(int $playerId = null)
+    {
+        if ($playerId) {
+            $this->playerId = $playerId;
+            $this->fromPlayerInfo = true;
+        }
     }
 
     #[Computed]

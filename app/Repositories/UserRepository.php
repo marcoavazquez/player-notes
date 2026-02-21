@@ -23,6 +23,11 @@ class UserRepository implements UserRepositoryInterface
         return User::role('player')->get();
     }
 
+    public function getPlayerWithNotes(int $id): ?User
+    {
+        return User::role('player')->with('playerNotes', 'playerNotes.author:id,name')->findOrFail($id);
+    }
+
     public function create(array $data): User
     {
         return User::create($data);

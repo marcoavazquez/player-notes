@@ -12,10 +12,9 @@
 - Agregar permisos para que validar el usuario
 - Mostrar el botón solo si el usuario tiene permisos
 
-
 ---
-
-Crear seeder para roles y usuarios
-
-Crear migración y modelo de notas
-Mostrar el listado de notas
+- Agregar vista de usuario, para mostrar las notas de ese usuario
+- Confirmar que el patron esté bien implementado
+- Checar donde y como implementar más SOLID
+- Agregar el Feature Test
+- Crear en otra rama la versión usando Clases

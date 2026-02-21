@@ -61,8 +61,13 @@ class User extends Authenticatable
             ->implode('');
     }
 
-    public function notes()
+    public function authoredNotes()
     {
         return $this->hasMany(PlayerNote::class, 'author_id');
+    }
+
+    public function playerNotes()
+    {
+        return $this->hasMany(PlayerNote::class, 'player_id');
     }
 }
