@@ -63,6 +63,6 @@ class User extends Authenticatable
 
     public function notes()
     {
-        return $this->hasMany(PlayerNote::class, 'support_id');
+        return $this->hasMany(PlayerNote::class, 'author_id');
     }
 }

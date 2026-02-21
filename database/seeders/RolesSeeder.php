@@ -27,7 +27,7 @@ class RolesSeeder extends Seeder
         ]);
 
         $supportPermission = Permission::create([
-            'name' => 'add notes'
+            'name' => 'create notes'
         ]);
 
         $player->givePermissionTo($playerPermission);

@@ -5,6 +5,7 @@ use App\Repositories\Contracts\UserRepositoryInterface;
 use Livewire\Component;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
+use Symfony\Component\HttpFoundation\Request;
 
 new class extends Component
 {
@@ -31,14 +32,20 @@ new class extends Component
         return $this->userRepository->getPlayers();
     }
 
-    public function save()
+    public function save(Request $request)
     {
+        $user = $request->user();
+        if (!$user->can('create notes')) {
+            abort(403);
+        }
         $this->validate();
 
         $this->playerNoterepository->create([
             'player_id' => $this->playerId,
             'note' => $this->note,
-            'support_id' => auth()->id(),
+            'author_id' => auth()->id(),
         ]);
+
+        $this->dispatch('player-note-created');
     }
 };

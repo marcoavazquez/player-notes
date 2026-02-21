@@ -8,7 +8,7 @@ class PlayerNote extends Model
 {
     protected $fillable = [
         'player_id',
-        'support_id',
+        'author_id',
         'note',
     ];
 
@@ -19,6 +19,6 @@ class PlayerNote extends Model
 
     public function author()
     {
-        return $this->belongsTo(User::class, 'support_id');
+        return $this->belongsTo(User::class, 'author_id');
     }
 }

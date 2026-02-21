@@ -1,13 +1,12 @@
 
 <div>
-    <flux:button href="{{ route('player-notes.create')}}" wire:navigate>
-        Create New Note
-    </flux:button>
-    <flux:modal.trigger name="create-note">
-        <flux:button >
-            Create New Note Modal
-        </flux:button>
-    </flux:modal.trigger>
+    @can('create notes')
+        <flux:modal.trigger name="create-note">
+            <flux:button >
+                Create New Note Modal
+            </flux:button>
+        </flux:modal.trigger>
+    @endcan
     <flux:table :paginate="$this->playerNotes">
         <flux:table.columns>
             <flux:table.column>Player Name</flux:table.column>
@@ -26,7 +25,9 @@
             @endforeach
         </flux:table.rows>
     </flux:table>
-    <flux:modal name="create-note">
-        <livewire:player-note.create />
-    </flux:modal>
+    @can('create notes')
+        <flux:modal name="create-note">
+            <livewire:player-note.create />
+        </flux:modal>
+    @endcan
 </div>
