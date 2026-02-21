@@ -11,9 +11,14 @@
 
             <flux:sidebar.nav>
                 <flux:sidebar.group :heading="__('Platform')" class="grid">
-                    <flux:sidebar.item icon="home" wire:navigate>
+                    <flux:sidebar.item icon="home" href="{{ route('home') }}" wire:navigate>
                         {{ __('Home') }}
                     </flux:sidebar.item>
+                    @can('create notes')
+                        <flux:sidebar.item icon="book-open" href="{{ route('player-notes.index') }}" wire:navigate>
+                            {{ __('Player Notes') }}
+                        </flux:sidebar.item>
+                    @endcan
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 

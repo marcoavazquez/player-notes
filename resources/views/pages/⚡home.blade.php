@@ -1,11 +1,20 @@
-<x-layouts::app :title="__('Home')">
+<?php
+
+use Livewire\Component;
+
+new class extends Component
+{
+    //
+};
+?>
+
 <div>
     <header>
         @if (Route::has('login'))
             <nav>
                 @auth
                     @can('create notes')
-                        <flux:button href="{{ route('player-notes.index') }}" >
+                        <flux:button href="{{ route('player-notes.index') }}" wire:navigate>
                             Player Notes
                         </flux:button>
                     @endcan
@@ -18,4 +27,3 @@
         @endif
     </header>
 </div>
-</x-layouts::app>

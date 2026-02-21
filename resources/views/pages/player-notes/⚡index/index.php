@@ -29,6 +29,6 @@ new class extends Component
     #[Computed]
     public function playerNotes(): Paginator
     {
-        return $this->repository->paginate(15);
+        return $this->repository->paginate(2);
     }
 };

@@ -2,8 +2,8 @@
 <div>
     @can('create notes')
         <flux:modal.trigger name="create-note">
-            <flux:button >
-                Create New Note Modal
+            <flux:button class="mb-4">
+                Create New Note
             </flux:button>
         </flux:modal.trigger>
     @endcan
