@@ -24,4 +24,12 @@ class DashboardTest extends TestCase
         $response = $this->get(route('home'));
         $response->assertOk();
     }
+
+    public function test_players_cant_see_notes_button(): void
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+
+        $response = $this->get(route('home'));
+    }
 }
