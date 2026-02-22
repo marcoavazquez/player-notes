@@ -19,7 +19,7 @@ class PlayerNotesTest extends TestCase
         $response->assertRedirect(route('login'));
     }
 
-        public function test_authenticated_users_can_visit_the_player_notes_page(): void
+    public function test_authenticated_users_can_visit_the_player_notes_page(): void
     {
         $user = User::factory()->create();
         $this->actingAs($user);

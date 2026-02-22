@@ -1,8 +1,8 @@
 <div>
-    <flux:heading size="lg" class="mb-4">New Note</flux:heading>
+    <flux:heading size="lg" class="mb-4">Nueva Nota</flux:heading>
     <form wire:submit="save">
-        <flux:select label="Player" wire:model="playerId" class="mb-4" :disabled="$this->fromPlayerInfo">
-            <option value="">Select a Player</option>
+        <flux:select label="Jugador" wire:model="playerId" class="mb-4" :disabled="$this->fromPlayerInfo">
+            <option value="">Seleccionar un Jugador</option>
             @foreach ($this->players as $player)
                 <flux:select.option
                     wire:key="player-{{ $player->id }}"
@@ -12,9 +12,9 @@
                 </flux:select.option>
             @endforeach
         </flux:select>
-        <flux:textarea label="Note" wire:model="note" class="mb-4" />
+        <flux:textarea label="Nota" wire:model="note" class="mb-4" />
         <flux:button type="submit" wire:loading.attr="disabled">
-            Save Note
+            Guardar
         </flux:button>
     </form>
 </div>

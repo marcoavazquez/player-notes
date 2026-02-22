@@ -9,7 +9,7 @@
         @can('create notes')
             <flux:modal.trigger name="create-note">
                 <flux:button class="mb-4">
-                    Create New Note
+                    Agregar Nota
                 </flux:button>
             </flux:modal.trigger>
         @endcan
@@ -24,7 +24,7 @@
             </div>
         </flux:card>
     @empty
-        <flux:text>No notes found</flux:text>
+        <flux:text>Sin notas creadas</flux:text>
     @endforelse
 
     @can('create notes')

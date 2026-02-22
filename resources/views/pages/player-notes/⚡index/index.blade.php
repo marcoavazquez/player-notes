@@ -5,16 +5,16 @@
     @can('create notes')
         <flux:modal.trigger name="create-note">
             <flux:button class="mb-4">
-                Create New Note
+                Agregar Nota
             </flux:button>
         </flux:modal.trigger>
     @endcan
     <flux:table :paginate="$this->playerNotes">
         <flux:table.columns>
-            <flux:table.column>Player Name</flux:table.column>
-            <flux:table.column>Note</flux:table.column>
-            <flux:table.column>Date</flux:table.column>
-            <flux:table.column>Author</flux:table.column>
+            <flux:table.column>Jugador</flux:table.column>
+            <flux:table.column>Nota</flux:table.column>
+            <flux:table.column>Fecha</flux:table.column>
+            <flux:table.column>Autor</flux:table.column>
         </flux:table.columns>
         <flux:table.rows>
             @foreach ($this->playerNotes as $idx => $note)
