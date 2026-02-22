@@ -1,16 +1,17 @@
 <?php
 
-use App\Repositories\Contracts\UserRepositoryInterface;
-use Livewire\Component;
-use Livewire\WithPagination;
-use Livewire\Attributes\Computed;
-use Illuminate\Database\Eloquent\Collection;
+namespace App\Livewire\Players;
 
-new class extends Component
+use App\Repositories\Contracts\UserRepositoryInterface;
+use Illuminate\Database\Eloquent\Collection;
+use Livewire\Attributes\Computed;
+use Livewire\Component;
+
+class Index extends Component
 {
     protected UserRepositoryInterface $repository;
 
-    public function boot(UserRepositoryInterface $userRepository)
+    public function boot(UserRepositoryInterface $userRepository): void
     {
         $this->repository = $userRepository;
     }
@@ -20,4 +21,9 @@ new class extends Component
     {
         return $this->repository->getPlayers();
     }
-};
+
+    public function render()
+    {
+        return view('livewire.players.index');
+    }
+}
