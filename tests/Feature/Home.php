@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class DashboardTest extends TestCase
+class HomeTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -25,11 +25,23 @@ class DashboardTest extends TestCase
         $response->assertOk();
     }
 
-    public function test_players_cant_see_notes_button(): void
+    public function test_players_cannot_see_notes_button(): void
     {
         $user = User::factory()->create();
+        $user->assignRole('player');
         $this->actingAs($user);
 
         $response = $this->get(route('home'));
+        $response->assertDontSee('Player Notes');
+    }
+
+    public function test_support_can_see_notes_button(): void
+    {
+        $user = User::factory()->create();
+        $user->assignRole('support');
+        $this->actingAs($user);
+
+        $response = $this->get(route('home'));
+        $response->assertSee('Player Notes');
     }
 }

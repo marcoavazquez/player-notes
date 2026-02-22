@@ -1,5 +1,7 @@
-
 <div>
+    @if ($message)
+        <flux:callout variant="success" class="mb-4" :heading="$message" />
+    @endif
     @can('create notes')
         <flux:modal.trigger name="create-note">
             <flux:button class="mb-4">
@@ -43,7 +45,7 @@
     </flux:table>
 
     @can('create notes')
-        <flux:modal name="create-note">
+        <flux:modal name="create-note" >
             <livewire:player-note.create />
         </flux:modal>
     @endcan

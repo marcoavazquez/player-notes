@@ -15,6 +15,8 @@ new class extends Component
 
     protected PlayerNoteRepositoryInterface $repository;
 
+    public string $message = '';
+
     public function boot(PlayerNoteRepositoryInterface $playerNoteRepository)
     {
         $this->repository = $playerNoteRepository;
@@ -24,6 +26,7 @@ new class extends Component
     public function refreshPlayerNotes()
     {
         Flux::modals()->close('create-note');
+        $this->message = 'Note created successfully';
     }
 
     #[Computed]

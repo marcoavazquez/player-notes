@@ -1,5 +1,9 @@
 
 <div>
+    @if ($message)
+        <flux:callout variant="success" class="mb-4" :heading="$message" />
+    @endif
+
     <div class="flex items-center justify-between gap-4">
         <flux:text size="xl" class="mb-4">{{ $player->name }}</flux:text>
         @can('create notes')

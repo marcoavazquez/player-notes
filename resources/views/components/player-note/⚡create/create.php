@@ -56,7 +56,6 @@ new class extends Component
             'note' => $this->note,
             'author_id' => auth()->id(),
         ]);
-
         $this->dispatch('player-note-created');
     }
 };

@@ -11,6 +11,8 @@ new class extends Component
 
     public User $player;
 
+    public string $message = '';
+
     public function mount(UserRepositoryInterface $repository, int $playerId)
     {
         $this->repository = $repository;
@@ -20,7 +22,7 @@ new class extends Component
     #[On('player-note-created')]
     public function refreshPlayerNotes()
     {
-        // $this->player = $this->repository->getPlayerWithNotes($this->player->id);
-        Flux::modals()->close('create-note');
+       Flux::modals()->close('create-note');
+       $this->message = 'Note created successfully';
     }
 };
