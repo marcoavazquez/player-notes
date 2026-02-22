@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Policies\PlayerNotePolicy;
 use Illuminate\Database\Eloquent\Model;
 
+#[UserPolicy(PlayerNotePolicy::class)]
 class PlayerNote extends Model
 {
     protected $fillable = [
