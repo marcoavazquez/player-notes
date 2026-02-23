@@ -47,16 +47,13 @@ class Create extends Component
 
     public function save(): void
     {
-        $user = auth()->user();
-        if (! $user || ! $user->can('create notes')) {
-            abort(403);
-        }
+        $this->authorize('create', PlayerNote::class);
         $this->validate();
 
         $this->playerNoteRepository->create([
             'player_id' => $this->playerId,
             'note' => $this->note,
-            'author_id' => $user->id,
+            'author_id' => auth()->id(),
         ]);
         $this->dispatch('player-note-created');
     }
