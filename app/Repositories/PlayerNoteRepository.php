@@ -8,6 +8,7 @@ use App\Models\PlayerNote;
 
 class PlayerNoteRepository implements PlayerNoteRepositoryInterface
 {
+    public function __construct() {}
 
     public function getAll(): Collection
     {
@@ -23,7 +24,7 @@ class PlayerNoteRepository implements PlayerNoteRepositoryInterface
     {
         return PlayerNote::with('player', 'author')->paginate($perPage);
     }
-  
+
     public function create(array $data): PlayerNote
     {
         return PlayerNote::create($data);

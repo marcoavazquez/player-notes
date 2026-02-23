@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\PlayerNote;
 use App\Repositories\Contracts\PlayerNoteRepositoryInterface;
 use App\Repositories\Contracts\UserRepositoryInterface;
 use Livewire\Component;
@@ -45,10 +46,7 @@ new class extends Component
 
     public function save(Request $request)
     {
-        $user = $request->user();
-        if (!$user->can('create notes')) {
-            abort(403);
-        }
+        $this->authorize('create', PlayerNote::class);
         $this->validate();
 
         $this->playerNoterepository->create([
